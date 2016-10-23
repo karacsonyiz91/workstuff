@@ -13,5 +13,3 @@ def helloWorld():
 
 if  helloUser():
     helloWorld()
-
-#lol
