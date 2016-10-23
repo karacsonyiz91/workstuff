@@ -8,9 +8,9 @@ def HelloWorld():
     print("Hello World!")
     exit
 
-      if len(sys.argv) > 1 :
+if len(sys.argv) > 1 :
           Hello()
-      else 
+else : 
         HelloWorld()
 
 
