@@ -209,16 +209,7 @@ def main():
             if event.type == pygame.QUIT:
                 done = True
                 #itt kezdődik a player2
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_d:
-                    player2.changespeed(-5, 0)
-                if event.key == pygame.K_a:
-                    player2.changespeed(5, 0)
-                if event.key == pygame.K_s:
-                    player2.changespeed(0, -5)
-                if event.key == pygame.K_w:
-                    player2.changespeed(0, 5)
- 
+            
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_d:
                     player2.changespeed(5, 0)
@@ -228,42 +219,18 @@ def main():
                     player2.changespeed(0, 5)
                 if event.key == pygame.K_w:
                     player2.changespeed(0, -5)
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_d:
+                    player2.changespeed(-5, 0)
+                if event.key == pygame.K_a:
+                    player2.changespeed(5, 0)
+                if event.key == pygame.K_s:
+                    player2.changespeed(0, -5)
+                if event.key == pygame.K_w:
+                    player2.changespeed(0, 5)       
  
-            player2.move(current_room.wall_list)
-        
-            if player2.rect.x < -15:
-                if current_room_no == 0:
-                    current_room_no = 2
-                    current_room = rooms[current_room_no]
-                    player2.rect.x = 740
-                elif current_room_no == 2:
-                    current_room_no = 1
-                    current_room = rooms[current_room_no]
-                    player2.rect.x = 740
-                else:
-                    current_room_no = 0
-                    current_room = rooms[current_room_no]
-                    player2.rect.x = 740
- 
-            if player2.rect.x > 751:
-                if current_room_no == 0:
-                    current_room_no = 1
-                    current_room = rooms[current_room_no]
-                    player2.rect.x = 0
-                elif current_room_no == 1:
-                    current_room_no = 2
-                    current_room = rooms[current_room_no]
-                    player2.rect.x = 0
-                else:
-                    current_room_no = 0
-                    current_room = rooms[current_room_no]
-                    player2.rect.x = 0
-            if player2.rect.x > 740:
-                if current_room_no == 2:
-                    current_room_no = 3
-                    message_display('Játékos 1 nyert!!')
-                    current_room = rooms[current_room_no]
-                    player2.rect.x = 0
+            
  # itt kezdödik a player 1
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
@@ -284,6 +251,44 @@ def main():
                     player.changespeed(0, 5)
                 if event.key == pygame.K_DOWN:
                     player.changespeed(0, -5)
+
+        #for vége
+
+        player2.move(current_room.wall_list)
+        
+        if player2.rect.x < -15:
+            if current_room_no == 0:
+                current_room_no = 2
+                current_room = rooms[current_room_no]
+                player2.rect.x = 740
+            elif current_room_no == 2:
+                current_room_no = 1
+                current_room = rooms[current_room_no]
+                player2.rect.x = 740
+            else:
+                current_room_no = 0
+                current_room = rooms[current_room_no]
+                player2.rect.x = 740
+
+        if player2.rect.x > 751:
+            if current_room_no == 0:
+                current_room_no = 1
+                current_room = rooms[current_room_no]
+                player2.rect.x = 0
+            elif current_room_no == 1:
+                current_room_no = 2
+                current_room = rooms[current_room_no]
+                player2.rect.x = 0
+            else:
+                current_room_no = 0
+                current_room = rooms[current_room_no]
+                player2.rect.x = 0
+        if player2.rect.x > 740:
+            if current_room_no == 2:
+                current_room_no = 3
+                message_display('Játékos 1 nyert!!')
+                current_room = rooms[current_room_no]
+                player2.rect.x = 0            
  
         player.move(current_room.wall_list)
         
